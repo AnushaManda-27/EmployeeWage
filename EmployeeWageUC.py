@@ -3,8 +3,8 @@
 @Date: 2021-08-05 12: 00: 30
 @Last Modified by: Anusha Manda
 @Last Modified time: 2021-08-06 18: 00: 30
-@Title: Calculation wages for a month
-        
+@Title: Calculate Wages till a condition of total working hours or
+        days is reached for a month - Assume 100 hours 
 '''
 import random
 
@@ -12,8 +12,9 @@ IS_PRESENT_FULL = 1
 IS_PRESENT_HALF = 2
 EMP_RATE_PER_HR = 20
 MAX_NO_OF_WORKINHG_DAYS = 20
-totalWorkingDays = 0
+MAX_WORKING_HRS_IN_MONTH = 100
 totalEmpHrs = 0
+totalWorkingDays = 0
 
 
 def emp_hrs_check(empcheck):
@@ -25,12 +26,12 @@ def emp_hrs_check(empcheck):
         Return :
                 emp_hrs
     '''
-    switcher = {1: 8, 2: 4, 0: 0}  # Here values are Working Hours
+    switcher = {1: 8, 2: 4, 0: 0}  # Here value are Working Hours
     return switcher[empcheck]
 
-if __name__ == '__main__':
 
-    while (totalWorkingDays < MAX_NO_OF_WORKINHG_DAYS):
+if __name__ == '__main__':
+    while (totalWorkingDays < MAX_NO_OF_WORKINHG_DAYS) and (totalEmpHrs < MAX_WORKING_HRS_IN_MONTH):
         totalWorkingDays += 1
         emp_check = random.randint(0, 2)
         emphrs = emp_hrs_check(emp_check)
